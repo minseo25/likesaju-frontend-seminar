@@ -12,6 +12,7 @@ export const MainSection = () => {
   const sectionRef = useRef(null);
   const designOuterRef = useRef(null);
   const designInnerRef = useRef(null);
+  const textSectionRef = useRef(null);
   const welcomeMsgRef = useRef(null);
   const card1Ref = useRef(null);
   const card2Ref = useRef(null);
@@ -109,6 +110,15 @@ export const MainSection = () => {
         y: viewportYMiddle * 1.5 * (1 - factor2),
       });
     }
+
+    if (textSectionRef.current) {
+      const delayedFactor = Math.max(0, factor2 - 0.2);
+      gsap.to(textSectionRef.current, {
+        x: -500 + 500 * delayedFactor,
+        opacity: delayedFactor,
+        duration: 0,
+      });
+    }
   };
 
   return (
@@ -118,7 +128,11 @@ export const MainSection = () => {
       innerLayerRef={sectionRef}
     >
       <div className="relative flex flex-col w-full gap-8 items-start mobile:items-center">
-        <div className="flex flex-col items-start mobile:items-center gap-8">
+        <div 
+          ref={textSectionRef} 
+          className="flex flex-col items-start mobile:items-center gap-8"
+          style={{ transform: 'translateX(-500px)', opacity: 0 }}
+        >
           <h1 className="text-[64px] mobile:text-[32px] leading-normal whitespace-pre-wrap text-left mobile:text-center nanum-extra-bold text-black dark:text-white">
             <span>멋쟁이</span>{' '}
             <s className="text-gray-500 dark:text-gray-400">사자</s>

@@ -23,9 +23,11 @@ export const FAQSection = () => {
 
   return (
     <SectionLayout>
-      <div className="w-full h-full flex flex-col gap-[80px]">
-        <h3 className="text-left text-4xl nanum-extra-bold">FAQs</h3>
-        <div className="flex flex-col gap-[30px] justify-center">
+      <div className="w-full h-full flex flex-col gap-[80px] mobile:gap-[40px] mobile:px-4">
+        <h3 className="text-left text-4xl nanum-extra-bold mobile:text-2xl mobile:text-center">
+          FAQs
+        </h3>
+        <div className="flex flex-col gap-[30px] justify-center mobile:gap-[20px]">
           {faqAccordionInfo.map((accordion) => (
             <FAQAccordion
               key={accordion.question}

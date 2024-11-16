@@ -53,27 +53,23 @@ export const Header = () => {
   };
 
   return (
-    <div className="sticky top-0 w-full flex flex-row items-center justify-between bg-white drop-shadow h-[80px] px-[68px] z-[999]">
+    <div className="sticky top-0 w-full flex flex-row items-center justify-between bg-white drop-shadow h-[80px] px-[68px] mobile:px-[20px] z-[999]">
       <Link
         to="/"
-        className="text-[26px] font-extrabold text-[#14142B] leading-9 tracking-tighter"
+        className="text-[26px] mobile:text-[20px] font-extrabold text-[#14142B] leading-9 tracking-tighter"
       >
         멋쟁이 사주처럼
       </Link>
-      <div className="flex flex-row items-center gap-[50px]">
+      <div className="flex flex-row items-center gap-[50px] mobile:gap-[20px]">
         <Link
           to="/saju"
-          className={
-            location.pathname === '/saju' ? activeLinkStyle : linkStyle
-          }
+          className={`${location.pathname === '/saju' ? activeLinkStyle : linkStyle} mobile:text-sm`}
         >
           사주
         </Link>
         <Link
           to="/chat"
-          className={
-            location.pathname === '/chat' ? activeLinkStyle : linkStyle
-          }
+          className={`${location.pathname === '/chat' ? activeLinkStyle : linkStyle} mobile:text-sm`}
         >
           채팅
         </Link>
@@ -83,11 +79,11 @@ export const Header = () => {
             onMouseOver={() => setShowProfile(true)}
             onMouseLeave={() => setShowProfile(false)}
           >
-            <span className="text-xl font-bold text-[#14142B] leading-6 hover:font-extrabold hover:text-[#4A3AFF] hover:cursor-pointer">
+            <span className="text-xl mobile:text-base font-bold text-[#14142B] leading-6 hover:font-extrabold hover:text-[#4A3AFF] hover:cursor-pointer">
               프로필
             </span>
             {showProfile && (
-              <div className="absolute top-[25px] right-[-25px] bg-white drop-shadow w-[221px] p-[25px] rounded-[12px] flex flex-col gap-5">
+              <div className="absolute top-[25px] right-[-25px] bg-white drop-shadow w-[221px] mobile:w-[180px] p-[25px] mobile:p-[15px] rounded-[12px] flex flex-col gap-5">
                 {profileImgIndex && (
                   <div className="flex flex-row gap-[10px] items-center justify-start">
                     <ProfileImage
@@ -129,7 +125,7 @@ export const Header = () => {
         ) : (
           <Link
             to="login"
-            className="text-xl font-bold text-[#4A3AFF] leading-6 bg-[#F3F1FF] px-7 py-[17px] rounded-[50px]"
+            className="text-xl mobile:text-base font-bold text-[#4A3AFF] leading-6 bg-[#F3F1FF] px-7 mobile:px-4 py-[17px] mobile:py-[12px] rounded-[50px]"
           >
             로그인
           </Link>

@@ -3,23 +3,23 @@ import { cn } from 'utils/cn';
 export const SectionLayout = ({
   children,
   outerLayerClassName: _outerLayerClassName,
-  innerLayerRef, // 추가!
+  innerLayerRef,
   innerLayerClassName: _innerLayerClassName,
 }) => {
   const outerLayerClassName = cn(
-    'flex items-center justify-start w-screen h-screen border-b',
+    'flex items-center justify-start w-screen min-h-screen mobile:min-h-[120vh] border-b',
     _outerLayerClassName,
   );
 
   const innerLayerClassName = cn(
-    'relative px-[20vw] w-full flex justify-between items-center items-center', // 추가!
+    'relative px-[20vw] mobile:px-[5vw] w-full flex flex-col justify-center items-center py-[10vh] mobile:py-[5vh]',
     _innerLayerClassName,
   );
 
   return (
     <div className={outerLayerClassName}>
       <div
-        ref={innerLayerRef} // 추가!
+        ref={innerLayerRef}
         className={innerLayerClassName}
       >
         {children}
